@@ -55,5 +55,24 @@ source ~/.zshrc
 volta install node@18
 
 bun i -g rimraf pnpm
+
+#Install nerd fonts
+brew install fontconfig
+mkdir -p ~/.local/share/fonts/NerdFonts
+cd ~/.local/share/fonts/NerdFonts
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/CascadiaCode.zip
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/CascadiaMono.zip
+
+unzip CascadiaCode.zip -d CaskaydiaCove
+unzip CascadiaMono.zip -d CascadiaMono
+
+#Install fonts
+fc-cache -fv
+
+#Check installed fonts
+fc-list | grep -i "CaskaydiaCove"
+fc-list | grep -i "CascadiaMono"
+
+
 # End
 echo "Dependencies have been installed successfully!"
