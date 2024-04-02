@@ -33,3 +33,5 @@ source ~/.zshrc
 
 # End
 echo "Dependencies have been installed successfully!"
+
+echo "p10k configure to config zsh theme"
