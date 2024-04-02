@@ -1,32 +1,37 @@
 # code ~/.config/starship.toml
 
 format = """
-╭─[░▒▓](#a3aed2)\
-[  ](bg:#a3aed2 fg:#090c0c)\
+╭─[](#23e7dc)\
+$os\
 $username\
-[](bg:#303030 fg:#707070)\
+[](bg:#394260 fg:#23e7dc)\
 $directory\
-[](fg:#769ff0 bg:#394260)\
+[](fg:#394260)\
 $git_branch\
 $git_status\
 [](fg:#212736 bg:#1d2230)\
 $time\
 [ ](fg:#1d2230)\
-\n╰─$character"""
+\n╰─$character
+"""
 
+# Set the timeout value in milliseconds,but seems to be useless
+command_timeout = 1000
 
-command_timeout = 10000 # Set the timeout value in milliseconds (e.g., 5000 milliseconds)
-
-# Disable the blank line at the start of the prompt
 add_newline = false
 
-# You can also replace your username with a neat symbol like   or disable this
-# and use the os module below
+[os]
+style = "bg:#23e7dc"
+symbols.Ubuntu = "  "
+symbols.Macos = "  "
+symbols.Windows = "  "
+disabled = false
+
 [username]
 show_always = true
-style_user = "fg:#b69676 bg:#303030"
-style_root = "fg:white bg:#303030"
-format = '[$user]($style)'
+style_user = "bg:#23e7dc"
+style_root = "bg:#23e7dc"
+format = '[$user ]($style)'
 disabled = false
 
 [status]
@@ -53,59 +58,46 @@ trim_at = "-"
 style = "bold dimmed white"
 disabled = true
 
-
-# An alternative to the username module which displays a symbol that
-# represents the current operating system
-[os]
-style = "bg:#303030"
-disabled = true # Disabled by default
-
 [directory]
-truncation_length = 5
-format = "[$path]($style)[$lock_symbol]($lock_style) "
+style = "bg:#394260"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
 
-
-# Here is how you can shorten some long paths by text replacement
-# similar to mapped_locations in Oh My Posh:
 [directory.substitutions]
-#"~/" = "~./"
 "~" = " ~"
+"Documents" = "󰈙"
+"Downloads" = ""
+"Music" = ""
+"Pictures" = ""
+
 
 [fill]
 symbol = ' '
-#symbol = '・'
-
-[c]
-symbol = ""
-style = "bg:#303030"
-format = '[ $symbol ]($style)'
-
-[docker_context]
-symbol = " "
-style = "bg:#303030"
-format = '[ $symbol $context ]($style) $path'
-
 
 [git_branch]
-format = " [$symbol$branch]($style) "
-symbol = "🍣 "
+# symbol = "🍣 "
+symbol = "🍣"
+format = '[$symbol $branch]($style)'
 style = "bold yellow"
+
 
 [git_commit]
 commit_hash_length = 8
 style = "bold white"
 
 [git_state]
-format = '[\($state( $progress_current of $progress_total)\)]($style) '
+style = "bg:#394260"
+format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)'
 
 [git_status]
 conflicted = " ⚔️ "
 ahead = " 🏎️ 💨 ×${count}"
 behind = " 🐢 ×${count}"
 diverged = " 🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count}"
-# untracked = " 🛤️  ×${count}"
-# stashed = " 📦 "
-modified = " 📝 ×${count}"
+untracked = " 🛤️ "
+stashed = " 📦 "
+modified = " 📝 "
 staged = " 🗃️  ×${count}"
 renamed = " 📛 ×${count}"
 deleted = " 🗑️  ×${count}"
@@ -113,34 +105,56 @@ style = "bright-white"
 format = "$all_status$ahead_behind"
 
 
+
+[c]
+symbol = " "
+style = "bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[docker_context]
+symbol = " "
+style = "bg:#06969A"
+format = '[ $symbol $context ]($style)'
+
 [golang]
 symbol = ""
 style = "fg:#FFFFFF bg:#303030"
 format = '[ $symbol ](bold $style)'
 
+[gradle]
+style = "bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[haskell]
+symbol = " "
+style = "bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
 [java]
-symbol = ""
-style = "fg:#0a96d6 bg:#303030"
-format = '[ $symbol ]($style)'
+symbol = " "
+style = "bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
 
 [nodejs]
 symbol = ""
-style = "fg:#0a96d6 bg:#303030"
-format = '[ $symbol ]($style)'
+style = "bg:#86BBD8"
+format = '[$symbol]($style)'
 
 [python]
-# Display the version of python from inside a local venv.
-#
-# Note this will only work when the venv is inside the project and it will only
-# work in the directory that contains the venv dir but maybe this is ok?
 symbol = ' '
 style = "fg:#0a96d6 bg:#303030"
-format = '[ $symbol ]($style)'
+format = '[ $symbol ($version) ]($style)'
 
 [rust]
-symbol = ""
-style = "fg:#0a96d6 bg:#303030"
-format = '[ $symbol ]($style)'
+symbol = ""
+style = "bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[scala]
+symbol = " "
+style = "bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
 
 [time]
 disabled = false

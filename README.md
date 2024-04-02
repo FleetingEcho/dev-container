@@ -7,6 +7,11 @@
 - All the projects and DATABASE data are binded in this HOME directory
 - Install `Dev Containers` in VSCODE
 - run `dev containers: reopen and rebuild container`
+- Use `starship` to customize the bash/zsh theme
+
+
+### Bash/Zsh Theme
+![Image](./images/shell_screenshot.png)
 
 ### Update devcontainer.json
 ### DEV CONTAINERS: OPEN CONTAINER CONFIGURATION FILE
