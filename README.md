@@ -68,5 +68,46 @@ source ~/.zshrc
 echo "Dependencies have been installed successfully!"
 
 echo "p10k configure to config zsh theme"
+```
+
+
+### Run MYSQL
+
+```bash
+mysqld --initialize --basedir=/home/linuxbrew/.linuxbrew/bin/mysql --datadir=/home/teng/MYSQL_DATA
+
+mysql -u root
+CREATE DATABASE test;
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'root';
+FLUSH PRIVILEGES;
+quit;
+```
+
+### POSTGRESQL SETUP
+```bash
+/home/linuxbrew/.linuxbrew/opt/postgresql@14/bin/postgres --version
+# init database
+initdb -D /home/teng/POSTGRESQL_DATA
+# start server
+pg_ctl -D /home/teng/POSTGRESQL_DATA -l logfile start
+
+#create user
+/home/linuxbrew/.linuxbrew/opt/postgresql@14/bin/createuser -s postgres
+
+psql -U postgres
+
+CREATE DATABASE test;
+
+quit;
+
+```
+
+
+### Terminate services
+```shell
+ps aux | grep mysqld
+ps aux | grep postgresql@14
+
+kill <id>
 
 ```

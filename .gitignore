@@ -1,1 +1,5 @@
 /projects/**
+/MYSQL_DATA/**
+/POSTGRESQL_DATA/**
+.bash_history
+.bashrc

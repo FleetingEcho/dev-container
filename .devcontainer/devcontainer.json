@@ -8,7 +8,6 @@
 		"source=/Users/tengzhang/Documents/Core/HOME_DIR/,target=/home/teng,type=bind",
 		"source=/Users/tengzhang/Documents/Core/HOME_DIR/script,target=/home/teng/script,type=bind"
 	],
-  "remoteUser": "root",
   "postCreateCommand": "/home/teng/script/init-container.sh",
   "forwardPorts": [3000,3001,3002,3003,3004,3005, 5000,8000,8080,9000,5432,3306,27017,6379]
 }

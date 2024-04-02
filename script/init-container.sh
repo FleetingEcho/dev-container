@@ -2,8 +2,10 @@
 
 # Install homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-(echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /root/.bashrc
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' | sudo tee -a ~/.bashrc
+echo 'export PATH="/usr/local/bin:$PATH"' | sudo tee -a ~/.bashrc
+source ~/.bashrc
 
 
 #Install dependencies
@@ -34,4 +36,4 @@ source ~/.zshrc
 # End
 echo "Dependencies have been installed successfully!"
 
-echo "p10k configure to config zsh theme"
+# echo "p10k configure to config zsh theme"
