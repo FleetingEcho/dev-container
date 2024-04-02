@@ -47,6 +47,7 @@ source ~/.zshrc
 #Install node
 volta install node@18
 
+bun i -g rimraf pnpm
 # End
 echo "Dependencies have been installed successfully!"
 
