@@ -10,7 +10,7 @@ echo 'export PATH="/usr/local/bin:$PATH"' | sudo tee -a ~/.bashrc
 echo "source ~/.bashrc" | source ~/.bashrc
 
 #Enter zsh
-brew install zsh powerlevel10k
+brew install zsh starship zsh-autosuggestions zsh-history-substring-search
 
 
 #Install dependencies
@@ -36,10 +36,17 @@ echo 'export PATH="$BUN_INSTALL/bin:$PATH"'
 ) | tee -a ~/.bashrc ~/.zshrc >/dev/null
 
 (
-echo 'source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme'
-echo 'POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true'
+echo 'eval "$(starship init bash)"'
+) >> ~/.bashrc
+
+(
+echo 'source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh'
+echo 'source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh'
+echo 'eval "$(starship init zsh)"'
 ) >> ~/.zshrc
 
+mkdir -p ~/.config && touch ~/.config/starship.toml
+cp /home/teng/script/starship.toml ~/.config/starship.toml
 
 source ~/.bashrc
 source ~/.zshrc
@@ -50,6 +57,3 @@ volta install node@18
 bun i -g rimraf pnpm
 # End
 echo "Dependencies have been installed successfully!"
-
-echo "p10k configure to config zsh theme"
-echo "/bin/zsh"

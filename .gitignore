@@ -3,3 +3,5 @@
 /POSTGRESQL_DATA/**
 .bash_history
 .bashrc
+/.cache/**
+/.pnpm-store/**
