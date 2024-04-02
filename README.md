@@ -1,3 +1,13 @@
+### INFO
+
+- MY MAC HOME ADDRESS
+	- `/Users/tengzhang/Documents/Core/HOME_DIR/`
+- INIT SCRIPTS
+	- `/Users/tengzhang/Documents/Core/HOME_DIR/script`
+- All the projects and DATABASE data are binded in this HOME directory
+- Install `Dev Containers` in VSCODE
+- run `dev containers: reopen and rebuild container`
+
 ### Update devcontainer.json
 ### DEV CONTAINERS: OPEN CONTAINER CONFIGURATION FILE
 ```json
@@ -9,7 +19,6 @@
 		"source=/Users/tengzhang/Documents/Core/HOME_DIR/,target=/home/teng,type=bind",
 		"source=/Users/tengzhang/Documents/Core/HOME_DIR/script,target=/home/teng/script,type=bind"
 	],
-  "remoteUser": "root",
   "postCreateCommand": "/home/teng/script/init-container.sh",
   "forwardPorts": [3000,3001,3002,3003,3004,3005, 5000,8000,8080,9000,5432,3306,27017,6379]
 }
@@ -35,8 +44,10 @@ exit # exit the remote terminal
 
 # Install homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-(echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /root/.bashrc
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' | sudo tee -a ~/.bashrc
+echo 'export PATH="/usr/local/bin:$PATH"' | sudo tee -a ~/.bashrc
+source ~/.bashrc
 
 
 #Install dependencies
@@ -83,7 +94,7 @@ FLUSH PRIVILEGES;
 quit;
 ```
 
-### POSTGRESQL SETUP
+### RUN POSTGRESQL
 ```bash
 /home/linuxbrew/.linuxbrew/opt/postgresql@14/bin/postgres --version
 # init database
@@ -102,6 +113,16 @@ quit;
 
 ```
 
+### RUN REDIS
+```shell
+# Remove IPV6 BINDING
+nano /home/linuxbrew/.linuxbrew/etc/redis.conf
+# Replace bind 127.0.0.1 :1  to bind 127.0.0.1
+
+# Run redis
+redis-server /home/linuxbrew/.linuxbrew/etc/redis.conf
+
+```
 
 ### Terminate services
 ```shell
