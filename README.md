@@ -1,24 +1,29 @@
 ### INFO
 
 - MY MAC HOME ADDRESS
-	- `/Users/tengzhang/Documents/Core/HOME_DIR/`
+  - `/Users/tengzhang/Documents/Core/HOME_DIR/`
+
 - INIT SCRIPTS
-	- `/Users/tengzhang/Documents/Core/HOME_DIR/script`
+  - `/Users/tengzhang/Documents/Core/HOME_DIR/script`
+
 - All the projects and DATABASE data are binded in this HOME directory
+
 - Install `Dev Containers` in VSCODE
+
 - run `dev containers: reopen and rebuild container`
+
 - Use `starship` to customize the bash/zsh theme
+
 - Install Dependencies
   + [x] Homebrew
-	+ [x] Zsh
-	+ [x] Starship
-	+ [x] Node
-	+ [x] Bun
-	+ [x] Python, pyenv, poetry
-	+ [x] MySQL
-	+ [x] PostgreSQL
-	+ [x] Redis
-
+  + [x] Zsh
+  + [x] Starship
+  + [x] Node
+  + [x] Bun
+  + [x] Python, pyenv, poetry
+  + [x] MySQL
+  + [x] PostgreSQL
+  + [x] Redis
 
 ### Bash/Zsh Theme
 ![Image](./images/shell_screenshot.png)
