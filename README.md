@@ -8,6 +8,15 @@
 - Install `Dev Containers` in VSCODE
 - run `dev containers: reopen and rebuild container`
 - Use `starship` to customize the bash/zsh theme
+- Install Dependencies
+	[x] Zsh
+	[x] Starship
+	[x] Node
+	[x] Bun
+	[x] Python, pyenv, poetry
+	[x] MySQL
+	[x] PostgreSQL
+	[x] Redis
 
 
 ### Bash/Zsh Theme
