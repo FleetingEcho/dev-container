@@ -5,3 +5,4 @@
 .bashrc
 /.cache/**
 /.pnpm-store/**
+.DS_Store

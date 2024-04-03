@@ -5,9 +5,9 @@
 	"runArgs": ["--platform=linux/amd64"],
 	"image": "mcr.microsoft.com/devcontainers/base:jammy",
 	"mounts": [
-		"source=/Users/tengzhang/Documents/Core/HOME_DIR/,target=/home/teng,type=bind",
-		"source=/Users/tengzhang/Documents/Core/HOME_DIR/script,target=/home/teng/script,type=bind"
+		"source=/Users/tengzhang/Documents/Core/HOME_DIR/,target=/home/fleeting-sound,type=bind",
+		"source=/Users/tengzhang/Documents/Core/HOME_DIR/script,target=/home/fleeting-sound/script,type=bind"
 	],
-  "postCreateCommand": "/home/teng/script/init-container.sh",
+  "postCreateCommand": "/home/fleeting-sound/script/init-container.sh",
   "forwardPorts": [3000,3001,3002,3003,3004,3005, 5000,8000,8080,9000,5432,3306,27017,6379]
 }
