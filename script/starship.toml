@@ -1,24 +1,54 @@
 # code ~/.config/starship.toml
 
+# ╭─[](#23e7dc)\
+# $memory_usage\
 format = """
-╭─[](#23e7dc)\
+╭┈[](#23e7dc)\
 $os\
 $username\
-[](bg:#394260 fg:#23e7dc)\
+[](bg:#E5C07B fg:#23e7dc)\
+$time\
+[](fg:#E5C07B bg:#1C668D)\
+[](fg:#1C668D bg:#394260)\
+[](fg:#394260)
+|┈\
+[](#95A5D2)\
 $directory\
-[](fg:#394260)\
+[](fg:#95A5D2 bg:#1C668D)\
+[](fg:#1C668D bg:#464A61)\
+[](fg:#464A61)\
 $git_branch\
 $git_status\
-[](fg:#212736 bg:#1d2230)\
-$time\
-[ ](fg:#1d2230)\
-\n╰─$character
+\n╰┈$character
 """
+
+# \n╰─$character
+
+
+# [localip]
+# ssh_only = false
+# format = '@[$localipv4](bold red) '
+# disabled = false
+# [memory_usage]
+# disabled = false
+# threshold = -1
+# symbol = '[RAM:](bg:#23e7dc)'
+# format='$symbol[${ram} ]($style)'
+# style = "bg:#23e7dc"
 
 # Set the timeout value in milliseconds,but seems to be useless
 command_timeout = 1000
-
 add_newline = false
+
+[character]
+success_symbol = '[❯](fg:#23E7DC) '
+error_symbol = '[✘ 😑](bold red) '
+
+
+[bun]
+symbol = ""
+style = "bg:#86BBD8"
+format = '[$symbol]($style)'
 
 [os]
 style = "bg:#23e7dc"
@@ -31,20 +61,20 @@ disabled = false
 show_always = true
 style_user = "bg:#23e7dc"
 style_root = "bg:#23e7dc"
-format = '[$user ]($style)'
+format = '[fleetingsound   ]($style)'
+# format = '[☕ $user]($style)'
+# format = '[😃  $user]($style)'
+# format = '[🍻🇹🇪🇳🇬 ]($style)'
 disabled = false
 
 [status]
 style = 'bg:#303030'
-symbol = '[✘ ](fg:red bg:#303030)'
+symbol = '[✘](fg:red bg:#303030)'
 success_symbol = '[✔ ](fg:green bg:#303030)'
 format = '[[$signal_name ](fg:red bg:#303030)$symbol]($style)'
 map_symbol = false
 disabled = false
 
-[character]
-success_symbol = '[❯](bold green)'
-error_symbol = '[✘](fg:red)'
 
 [cmd_duration]
 min_time = 1
@@ -59,27 +89,31 @@ style = "bold dimmed white"
 disabled = true
 
 [directory]
-style = "bg:#394260"
-format = "[ $path ]($style)"
+style = "bg:#95A5D2"
+format = "[$path ]($style)"
+# format = "[ $path ]($style)"
+read_only = "🔒"
+read_only_style = "bg:#E5C07B"
 truncation_length = 3
-truncation_symbol = "…/"
+truncation_symbol = "  /"
 
 [directory.substitutions]
 "~" = " ~"
 "Documents" = "󰈙"
-"Downloads" = ""
-"Music" = ""
-"Pictures" = ""
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
 
 
 [fill]
-symbol = ' '
+symbol = ''
 
 [git_branch]
 # symbol = "🍣 "
-symbol = "🍣"
+symbol = ""
 format = '[$symbol $branch]($style)'
-style = "bold yellow"
+style = "fg:#2AFAF5"
+# style = "bold yellow"
 
 
 [git_commit]
@@ -103,7 +137,6 @@ renamed = " 📛 ×${count}"
 deleted = " 🗑️  ×${count}"
 style = "bright-white"
 format = "$all_status$ahead_behind"
-
 
 
 [c]
@@ -137,9 +170,9 @@ format = '[ $symbol ($version) ]($style)'
 
 
 [nodejs]
-symbol = ""
-style = "bg:#86BBD8"
+symbol = " "
 format = '[$symbol]($style)'
+style = "fg:#2AFAF5"
 
 [python]
 symbol = ' '
@@ -158,6 +191,8 @@ format = '[ $symbol ($version) ]($style)'
 
 [time]
 disabled = false
-time_format = "%R" # Hour:Minute Format
-style = "bg:#1d2230"
-format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
+# time_format = "%R" # Hour:Minute Format
+time_format = "%b %d %I:%M %p"
+style = "bg:#E5C07B"
+utc_time_offset = '-4'
+format = '[[  Toronto $time](fg:#4B5972 bg:#E5C07B)]($style)'
