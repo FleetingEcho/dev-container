@@ -8,14 +8,8 @@ $os\
 $username\
 [](bg:#E5C07B fg:#23e7dc)\
 $time\
-[](fg:#E5C07B bg:#1C668D)\
-[](fg:#1C668D bg:#394260)\
-[](fg:#394260)
-|┈\
-[](#95A5D2)\
+[](fg:#E5C07B bg:#464A61)\
 $directory\
-[](fg:#95A5D2 bg:#1C668D)\
-[](fg:#1C668D bg:#464A61)\
 [](fg:#464A61)\
 $git_branch\
 $git_status\
@@ -52,16 +46,16 @@ format = '[$symbol]($style)'
 
 [os]
 style = "bg:#23e7dc"
-symbols.Ubuntu = "  "
-symbols.Macos = "  "
-symbols.Windows = "  "
+symbols.Ubuntu = " "
+symbols.Macos = " "
+symbols.Windows = " "
 disabled = false
 
 [username]
 show_always = true
 style_user = "bg:#23e7dc"
 style_root = "bg:#23e7dc"
-format = '[fleetingsound   ]($style)'
+format = '[fleetingsound  ]($style)'
 # format = '[☕ $user]($style)'
 # format = '[😃  $user]($style)'
 # format = '[🍻🇹🇪🇳🇬 ]($style)'
@@ -89,17 +83,17 @@ style = "bold dimmed white"
 disabled = true
 
 [directory]
-style = "bg:#95A5D2"
-format = "[$path ]($style)"
+style = "bg:#464A61"
+format = "[$path]($style)"
 # format = "[ $path ]($style)"
 read_only = "🔒"
 read_only_style = "bg:#E5C07B"
-truncation_length = 3
+truncation_length = 1
 truncation_symbol = "  /"
 
 [directory.substitutions]
-"~" = " ~"
-"Documents" = "󰈙"
+"~" = "  ~"
+"Documents" = "󰈙 "
 "Downloads" = " "
 "Music" = " "
 "Pictures" = " "
@@ -111,8 +105,9 @@ symbol = ''
 [git_branch]
 # symbol = "🍣 "
 symbol = ""
-format = '[$symbol $branch]($style)'
-style = "fg:#2AFAF5"
+format = '[ $symbol $branch]($style)'
+# style = "fg:#2AFAF5"
+style = "fg:#F7CA75"
 # style = "bold yellow"
 
 
@@ -125,12 +120,12 @@ style = "bg:#394260"
 format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)'
 
 [git_status]
+stashed = " 📦 "
 conflicted = " ⚔️ "
 ahead = " 🏎️ 💨 ×${count}"
 behind = " 🐢 ×${count}"
 diverged = " 🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count}"
 untracked = " 🛤️ "
-stashed = " 📦 "
 modified = " 📝 "
 staged = " 🗃️  ×${count}"
 renamed = " 📛 ×${count}"
@@ -192,7 +187,7 @@ format = '[ $symbol ($version) ]($style)'
 [time]
 disabled = false
 # time_format = "%R" # Hour:Minute Format
-time_format = "%b %d %I:%M %p"
+time_format = "%b-%d %R"
 style = "bg:#E5C07B"
-utc_time_offset = '-4'
-format = '[[  Toronto $time](fg:#4B5972 bg:#E5C07B)]($style)'
+# utc_time_offset = '-4'
+format = '[[  $time](fg:#4B5972 bg:#E5C07B)]($style)'
